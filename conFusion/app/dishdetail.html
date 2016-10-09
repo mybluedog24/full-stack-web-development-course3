@@ -46,18 +46,15 @@
             </div>
             <div class="col-xs-9 col-xs-offset-1">
                 <div class="row row-header">
-                    <div class="col-xs-12 col-sm-6">
-                        <h3>Customer Comments </h3>
-                    </div>
-                    <div class="col-xs-12 col-sm-6">
-                        <label>Sort by:</label>
-                        <input type="text" ng-model="">
-                    </div>
+                    <span><br/><h4 style="display:inline;"><strong>Customer comments</strong></h4>
+                        &nbsp;&nbsp;&nbsp;Sort by:&nbsp;&nbsp;
+                        <input type="text" ng-model="dishDetailCtrl.query"></span>
+
                 </div>
-                <blockquote ng-repeat="comment in dishDetailCtrl.dish.comments">
+                <blockquote ng-repeat="comment in dishDetailCtrl.dish.comments | orderBy:dishDetailCtrl.query">
                     <p>{{comment.rating}} Stars</p>
                     <p>{{comment.comment}}</p>
-                    <footer>{{comment.author}}, {{comment.date}}</footer>
+                    <footer>{{comment.author}}, {{comment.date | date}}</footer>
                 </blockquote>
 
             </div>
